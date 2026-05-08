@@ -5,12 +5,42 @@ import { FaPlay, FaImage } from 'react-icons/fa';
 const categories = ['All', 'Video', 'Social Media', 'Ads'];
 
 const projects = [
-  { id: 1, title: 'Brand Story', category: 'Video', image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1000', type: 'video' },
-  { id: 2, title: 'Instagram Campaign', category: 'Social Media', image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000', type: 'image' },
-  { id: 3, title: 'Product Launch', category: 'Ads', image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000', type: 'video' },
-  { id: 4, title: 'Corporate Reel', category: 'Video', image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1000', type: 'video' },
-  { id: 5, title: 'TikTok Growth', category: 'Social Media', image: 'https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=1000', type: 'image' },
-  { id: 6, title: 'Summer Sale Ad', category: 'Ads', image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff0f?auto=format&fit=crop&q=80&w=1000', type: 'video' },
+  { 
+    id: 1, 
+    title: 'Featured Reel', 
+    category: 'Video', 
+    type: 'video',
+    link: 'https://www.instagram.com/reel/DX9qfiAhseZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D'
+  },
+  { 
+    id: 2, 
+    title: 'Creative Reel', 
+    category: 'Social Media', 
+    type: 'video',
+    link: 'https://www.instagram.com/reel/DTGGnpTDAD3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D' 
+  },
+  { 
+    id: 3, 
+    title: 'Commercial Project', 
+    category: 'Ads', 
+    type: 'video',
+    link: 'https://www.instagram.com/reel/DUQNmNoEjc5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D' 
+  },
+  { 
+    id: 4, 
+    title: 'Corporate Video', 
+    category: 'Video', 
+    type: 'video',
+    link: 'https://www.instagram.com/reel/DRKkUsqEqnc/?igsh=MWp0MDl2YXIzaDVuYg==' 
+  },
+  { 
+    id: 5, 
+    title: 'TikTok Reel', 
+    category: 'Social Media', 
+    type: 'video',
+    link: 'https://www.instagram.com/reel/DN0WP4i2JxL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' 
+  },
+  { id: 6, title: 'Summer Sale Ad', category: 'Ads', type: 'video' },
 ];
 
 const PortfolioGrid = () => {
@@ -46,32 +76,36 @@ const PortfolioGrid = () => {
       >
         <AnimatePresence>
           {filteredProjects.map((project) => (
-            <motion.div
+            <motion.a
+              href={project.link || '#'}
+              target={project.link ? "_blank" : "_self"}
+              rel="noopener noreferrer"
               layout
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
               key={project.id}
-              className="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer bg-gray-900"
+              className="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer bg-navy-900 border border-gray-800 hover:border-neon-blue/50 transition-colors duration-300 block"
             >
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-40"
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-neon-blue rounded-full flex items-center justify-center mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              {/* Background Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-navy-900 to-black opacity-50 group-hover:opacity-80 transition-opacity duration-300" />
+              
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                <div className="w-14 h-14 bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-neon-blue group-hover:border-neon-blue transition-all duration-300">
                   {project.type === 'video' ? (
-                    <FaPlay className="text-black ml-1" />
+                    <FaPlay className="text-neon-blue group-hover:text-black ml-1 transition-colors duration-300" />
                   ) : (
-                    <FaImage className="text-black" />
+                    <FaImage className="text-neon-blue group-hover:text-black transition-colors duration-300" />
                   )}
                 </div>
-                <h4 className="text-white text-xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{project.title}</h4>
-                <p className="text-neon-blue mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">{project.category}</p>
+                <h4 className="text-white text-xl font-bold mb-2 transition-transform duration-300 group-hover:scale-105">{project.title}</h4>
+                <p className="text-gray-400 text-sm font-medium group-hover:text-neon-blue transition-colors duration-300">{project.category}</p>
+                
+                {/* Visual Accent */}
+                <div className="mt-4 w-12 h-1 bg-gray-800 group-hover:w-20 group-hover:bg-neon-blue transition-all duration-500 rounded-full" />
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </AnimatePresence>
       </motion.div>

@@ -17,18 +17,18 @@ const Footer = () => {
               A creative IT and media agency specializing in content that converts and captivates. We bring your vision to life with modern digital solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors">
+              <a href="https://www.instagram.com/nexsof.production?igsh=MTdjNjRsaW50YWRrdA%3D%3D" className="text-gray-400 hover:text-neon-blue transition-colors">
                 <FaInstagram size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors">
+              <a href="https://www.linkedin.com/company/nexsof-production/about/" className="text-gray-400 hover:text-neon-blue transition-colors">
                 <FaLinkedin size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors">
+              <a href="https://www.youtube.com/@nexsof.production" className="text-gray-400 hover:text-neon-blue transition-colors">
                 <FaYoutube size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors">
+              {/*} <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors">
                 <FaTwitter size={24} />
-              </a>
+              </a>*/}
             </div>
           </div>
 
@@ -49,7 +49,7 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-400">
               <li>admin@nexsof.tech</li>
               <li>+91 8090598976</li>
-              <li>315/c Nyay Vihar Colony,<br />lucknow UttarPradesh 226020</li>
+              <li>315/c Nyay Vihar Colony,<br />lucknow, UttarPradesh 226020</li>
             </ul>
           </div>
         </div>
